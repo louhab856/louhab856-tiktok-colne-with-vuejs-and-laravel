@@ -7,9 +7,10 @@
 
             <div class="w-full flex justify-end">
                 <button 
+                    @click="$event => $generaleStore.isLoginOpen = false"
                     class="p-1.5 rounded-full bg-gray-100"
                 >
-                    <Icon name="mdi:close" size="26"/>
+                    <Icon  name="mdi:close" size="26"/>
                 </button>
             </div>
             <!--login page :-->
@@ -34,5 +35,6 @@
 </template>
 <script setup>
 let isRegister = ref(false)
+const {$generaleStore}=useNuxtApp();
 
 </script>

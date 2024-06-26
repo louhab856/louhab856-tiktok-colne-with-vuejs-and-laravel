@@ -8,13 +8,12 @@
                     <div class="text-[30px] font-bold truncate">User Name</div>
                     <div class="text-[18px] truncate">User Name </div>
                     <button
-                    v-if="false"
+                    @click="$event => $generaleStore.isLoginOpen = true"
                     class="flex item-center rounded-md py-1.5 px-3.5 mt-3 text-[15px]  font-semi-bold border hover:bg-gray-100">
                         <Icon class="mt-0.5 mr-1" name="mdi:pencil" size="18"/>
                         <span>Edit profile</span>
                     </button>
                     <button
-                    v-else
                     class="flex item-center rounded-md py-1.5 px-3.5 mt-3 text-[15px] text-white font-semi-bold border bg-[#F02C56]">
                         Follow
                     </button>
@@ -52,4 +51,13 @@
 <script setup>
     import MainLayout from '~/layouts/MainLayout.vue';
     import PostUser from '~/components/PostUser.vue'
+    const {$generaleStore}=useNuxtApp();
+    const isEditProfileOpen= ()=>{
+        $generaleStore.isEditProfileOpen = true
+    }
+    const handleClick= ()=> {
+        $generaleStore.isLogging = true
+    console.log('this : ', $generaleStore.isEditProfileOpen )
+    }
+
 </script>

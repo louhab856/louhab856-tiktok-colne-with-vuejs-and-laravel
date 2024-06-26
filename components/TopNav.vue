@@ -20,13 +20,15 @@
                         <Icon  name="+" color="#0000" size="22"/>
                         <span class="px-2 font-meduim text-[15px]">Upload</span>
                     </button>
-                    <div class="flex items-center" v-if="false">
-                        <button class="flex items-center bg-[#F02C56] text-white border rounded-md px-3 py-[6py]">
+                    <div v-if="!$userStore.id" class="flex items-center" >
+                        <button 
+                        @click="$event => $generaleStore.isLoginOpen = true"
+                        class="flex items-center bg-[#F02C56] text-white border rounded-md px-3 py-[6py]">
                             <span class="mx-4  font-meduim text-[15px]">Login</span>
                         </button>
                         <Icon name="mdi:dots-vertical" color="#161724" size="25"/>
                     </div>
-                    <div class="flex items-center">
+                    <div v-else class="flex items-center">
                         <Icon class="ml-1 mr-4" name="carbon:send-alt" color="#161724" size="30"/>
                         <Icon class="mr-5" name="bx:message-detail" color="#161724" size="27"/>
                         <div class="relative">
@@ -67,5 +69,6 @@
 <script setup>
 const route = useRoute()
 let showMenu = ref(false)
-// don't touch it , is done
+const {$generaleStore}=useNuxtApp();
+
 </script>
